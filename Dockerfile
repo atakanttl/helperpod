@@ -21,11 +21,12 @@ RUN /bin/sh -c set -eux; \
     jq \
     bind-tools
 
-RUN /bin/sh -c set -eux; \
-    addgroup -S -g "$GID" "$USER"; \
-    adduser --disabled-password --gecos "" --home "$(pwd)" \
-        --ingroup "$USER" --no-create-home --uid "$UID" "$USER"
+# # Remove below comments if you don't want to run root container
+# RUN /bin/sh -c set -eux; \
+#     addgroup -S -g "$GID" "$USER"; \
+#     adduser --disabled-password --gecos "" --home "$(pwd)" \
+#         --ingroup "$USER" --no-create-home --uid "$UID" "$USER"
 
-USER 1000
+# USER 1000
 
 ENTRYPOINT ["sh", "-c", "tail -f /dev/null"]
