@@ -32,6 +32,7 @@ def build_image():
         tag=IMAGE_NAME + ":" + IMAGE_VERSION,
         rm=True,
         decode=True,
+        platform="linux/amd64",
     ):
         print(*line.values())
 
